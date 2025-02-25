@@ -2,27 +2,31 @@
 using namespace std;
 
 int main() {
+    int posX = 0, posY = 0; // Character position
+    char input;
 
-	bool up = true;
-	bool down = true;
-	bool left = true;
-	bool right = false;
+    cout << "Move using W A S D. Press Q to quit.\n";
 
-	if (up == true) {
-		cout << "Character moved up" << endl; 
-	}
-	if (down == true) {
-		cout << "Character moved down" << endl;
-	}
-	if (left == true) {
-		cout << "Character moved left" << endl;
-	}
-	if (right == true) {
-		cout << "Character moved right" << endl;
-	}
+    while (true) {
+        cout << "> ";
+        cin >> input;
 
-		
-	
+        if (input == 'q' || input == 'Q') 
+            break;
 
-	
+        switch (input) {
+            case 'w': case 'W': posY++; break;
+            case 's': case 'S': posY--; break;
+            case 'a': case 'A': posX--; break;
+            case 'd': case 'D': posX++; break;
+            default:
+                cout << "Huh? Try W, A, S, or D.\n";
+                continue;
+        }
+
+        cout << "Now at: " << posX << ", " << posY << "\n";
+    }
+
+    cout << "Bye! Final position: " << posX << ", " << posY << "\n";
+    return 0;
 }
